@@ -1,0 +1,985 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portadas para Destacadas GRATIS - NuMakeStudio</title>
+	
+<link rel="icon" type="image/x-icon" href="favicon-numake.ico">
+
+<!-- Fuente -->
+<link href="https://fonts.googleapis.com/css2?family=Michland&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+	.oculta { display: none; }
+/* ---------------------------------- */
+/* RESETEO Y COLORES GENERALES */
+/* ---------------------------------- */
+*{ box-sizing:border-box; }
+html, body{
+    margin:0;
+    padding:0;
+}
+body{
+    background:linear-gradient(180deg,#f9f9f9 0%, #f9f9f9 100%);
+    color:#000000;
+    font-family: "Poppins", sans-serif;
+}
+
+/* ---------------------------------- */
+/* HEADER */
+/* ---------------------------------- */
+.header{
+    width:100%;
+    background:#000000;
+    padding:15px 50px;             /* ← espacio extra para que NO quede pegado */
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:relative;
+    top:0;
+    z-index:999;
+}
+
+.header img{
+    height:30px;
+}
+
+/* Menú */
+.nav{
+    display:flex;
+    gap:15px;            /* separación entre botones */
+}
+
+.nav a{
+    color:#fff;
+    text-decoration:none;
+    font-size:14px;
+}
+
+.menu-btn{
+    display:none;
+    color:#fff;
+    font-size:28px;
+    cursor:pointer;
+}
+
+/* Modo móvil */
+@media (max-width: 768px){
+    .menu-btn{ display:block; }
+
+    .nav{
+        display:none;
+        flex-direction:column;
+        position:absolute;
+        left:0;
+        top:70px;
+        width:100%;
+        background:#111;
+        padding:10px 0;
+        border-top:2px solid #00000;
+    }
+
+    .nav a{
+        padding:15px;
+        border-bottom:1px solid #222;
+    }
+
+    .nav.active{
+        display:flex;
+    }
+}
+
+/* ---------------------------------- */
+/* CONTENEDOR */
+/* ---------------------------------- */
+.contenedor{
+    max-width:1000px;
+    margin:150px auto 60px;         /* ← espacio para que NO se pegue al header */
+    padding:30px;
+    background:##0b1220;             /* color del recuadro */
+    border-radius:0;                /* puntas rectas */
+    min-height:600px;               /* ← contenedor estable que NO se achica */
+}
+
+/* ---------------------------------- */
+/* FOOTER */
+/* ---------------------------------- */
+footer{
+    width:100%;
+    background:#000000;
+    padding:50px 20px;
+    text-align:center;
+}
+
+footer h3{
+    font-family:'Michland';
+    font-size:40px;
+    margin-bottom:25px;
+	color:#666666;
+}
+
+footer nav ul{
+    list-style:none;
+    padding:0;
+    margin:0 0 30px 0;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:20px;
+}
+
+footer nav ul li a{
+    color:#888;
+    text-decoration:none;
+}
+
+footer p{
+    color:#222;
+    font-size:14px;
+    margin-top:20px;
+}
+.contenedor {
+  max-width: 1000px;
+  margin: 150px auto 60px;
+  padding: 30px;
+  background-color: #07172a !important; /* fondo sólido, sin pixelado */
+  background-image: none !important;    /* quita cualquier imagen */
+  background-repeat: no-repeat !important;
+  background-size: auto !important;
+  border-radius: 0 !important;
+  min-height: 600px;
+}
+	header .nav a:hover,
+footer nav ul li a:hover {
+    text-decoration: underline !important;
+}
+
+/* --- CARRITO ANIMACIÓN --- */
+.bounce {
+    animation: bounce 0.3s ease;
+}
+
+@keyframes bounce {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.25); }
+    100% { transform: scale(1); }
+}
+
+/* --- PANEL DEL CARRITO --- */
+#carrito-panel {
+    position:absolute;
+    top:60px;
+    right:0;
+    width:260px;
+    background:#0f1828;
+    border:1px solid #ff6b6b;
+    padding:15px;
+    display:none;
+    border-radius:10px;
+    z-index:9999;
+}
+
+#carrito:hover #carrito-panel {
+    display:block;
+}
+
+#carrito-panel h4 {
+    margin:0 0 10px 0;
+    font-size:18px;
+    color:#ff6b6b;
+}
+
+#carrito-panel button {
+    width:100%;
+    padding:10px;
+    background:#ff6b6b;
+    border:none;
+    color:#fff;
+    font-weight:bold;
+    cursor:pointer;
+    border-radius:8px;
+}
+
+#carrito-panel button:hover {
+    opacity:0.8;
+}
+/* 🔥 FORZAR ESPACIADO DEL FOOTER 🔥 */
+footer nav ul {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 20px 0 !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 20px !important;
+}
+
+footer nav ul li a {
+    text-decoration: none !important;
+    color: inherit !important;
+    font-size: 15px !important;
+}
+
+footer nav ul li a:hover {
+    text-decoration: underline !important;
+}
+/* ============================== */
+/*       SECCIÓN STICKERS        */
+/* ============================== */
+
+.stickers-container {
+    max-width: var(--maxw);
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.sticker-block {
+    background: var(--card);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 2px rgba(0,0,0,0.3);
+}
+
+.pack-title {
+    color: var(--accent);
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.sticker-img {
+    width: 20%;
+    height: auto;
+    border-radius: 10px;
+    display: block;
+}
+
+/* ============================== */
+/*      PREMIUM / PERSONALIZADO   */
+/* ============================== */
+
+.paid-container {
+    max-width: var(--maxw);
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.paid-item {
+    display: flex;
+    gap: 20px;
+    background: var(--glass);
+    padding: 20px;
+    border-radius: 12px;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.paid-img {
+    width: 20px;
+    border-radius: 10px;
+}
+
+.paid-info h4 {
+    margin: 0;
+    font-size: 22px;
+    color: var(--accent);
+}
+
+.paid-info p {
+    margin: 5px 0 15px;
+    color: var(--muted);
+}
+
+.buy-btn {
+    padding: 12px 20px;
+    background: var(--accent);
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.buy-btn:hover {
+    opacity: .8;
+}
+.hilera img {
+    width: 150px;      /* 🔥 Cambiá este número para ajustar tamaño */
+    height: auto;
+    border-radius: 8px;
+    object-fit: contain;
+}
+footer {
+  background: #000;
+  color: #888;
+}
+.sticker-block {
+  position: relative;
+  width: 100%;
+}
+
+/* CONTENEDOR DE BOTONES */
+.pack-actions {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  display: flex;
+  gap: 8px;
+}
+
+/* BOTONES BASE */
+.pack-actions a {
+  padding: 8px 14px;
+  font-size: 13px;
+  text-decoration: none;
+  border: 1px solid #000;
+  transition: all 0.25s ease;
+}
+
+/* VER PACK */
+.btn-pack {
+  background: #fff;
+  color: #000;
+}
+
+/* DESCARGAR */
+.btn-download {
+  background: #000;
+  color: #fff;
+}
+
+/* HOVER */
+.btn-pack:hover {
+  background: #000;
+  color: #fff;
+}
+
+.btn-download:hover {
+  background: #fff;
+  color: #000;
+}
+@media (max-width: 768px) {
+  .pack-actions {
+    bottom: 8px;
+    right: 8px;
+  }
+
+  .pack-actions a {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+}
+.footer-social {
+  display: flex;
+  justify-content: center; /* centro del footer */
+}
+
+.footer-ig {
+  width: 60px; /* tamaño */
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+.footer-ig:hover {
+  opacity: 1;
+}
+
+footer {
+  position: relative;
+}
+
+.footer-social {
+  position: relative;
+  z-index: 10;
+}
+
+.footer-social a,
+.footer-social img {
+  pointer-events: auto;
+}
+
+.footer-ig {
+  display: block;
+}
+	.stickers-container {
+  padding: 0 20px; /* aire a izquierda y derecha */
+}
+body {
+  font-size: 14px;
+}
+/* ====================== */
+/* SUBMENÚ ADAPTADO - ESTILO NUMAKE (negro + rosa) */
+/* ====================== */
+
+/* Contenedor del item */
+.nav-item {
+    position: relative;
+    display: block;                 /* Asegura alineación */
+}
+
+/* Submenú base (desktop) */
+.submenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #000000;            /* Fondo negro */
+    min-width: 220px;
+    padding: 8px 0;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 12px 35px rgba(255, 0, 85, 0.2);  /* Sombra rosa sutil */
+    
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(12px);
+    transition: all 0.3s ease;
+    z-index: 999;
+}
+
+/* Links del submenú */
+.submenu a {
+    display: block;
+    padding: 12px 20px;
+    font-size: 14px;
+    color: #ffffff;                 /* Texto blanco */
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.submenu a:hover {
+    background: #222;            /* Hover rosa neón */
+    padding-left: 30px;             /* Indentación suave */
+    color: #ffffff;
+}
+
+/* Desktop: hover suave */
+@media (min-width : 1031px ){
+    .has-submenu:hover > .submenu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+}
+
+/* Móvil: animación de contraer/desplegar con max-height (como tu código original) */
+@media (max-width: 768px) {
+    .submenu {
+        position: static;
+        box-shadow: none;
+        background: #111111;        /* Negro un poco más claro para jerarquía */
+        transform: none;
+        opacity: 1;
+        visibility: visible;
+        max-height: 0;              /* Cerrado por defecto */
+        overflow: hidden;
+        padding: 0;
+        transition: max-height 0.4s ease, padding 0.4s ease;  /* Animación suave */
+    }
+
+    .nav-item.open > .submenu {     /* Cuando tiene clase .open */
+        max-height: 500px;          /* Suficiente para muchas opciones */
+        padding: 8px 0;
+    }
+
+    .submenu a {
+        padding-left: 40px;         /* Indentado como subitem */
+    }
+
+    .submenu a:hover {
+        background: #222;
+        padding-left: 50px;
+    }
+}
+@media (max-width: 768px) {
+    .nav-item.open > .submenu-toggle::after {
+        transform: rotate(180deg);  /* Gira al abrir */
+    }
+}
+    @media (min-width: 769px) {
+    .submenu {
+        left: auto;                 /* No a la izquierda */
+        right: 0;                   /* Alineado a la derecha del item padre */
+        transform: translateY(12px); /* Mantiene la animación */
+    }
+
+    .has-submenu:hover > .submenu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+}
+	html {
+    scroll-behavior: smooth;  /* Scroll suave en todos los links con # */
+}
+/* Flechita indicadora (gira al abrir en móvil) */
+.submenu-toggle::after {
+    content: "▾";
+    font-size: 11px;
+    margin-left: 6px;
+    transition: transform 0.3s ease;
+}	</style>
+
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+    <a href="https://numakestudio.com/">
+        <img src="LOGO NUEVO RENOVADO NUMAKE.png" alt="NuMakeStudio">
+    </a>
+<span class="menu-btn" id="menuBtn">☰</span>
+<nav class="nav" id="navMenu">
+    <!-- Item con SUBMENÚ -->
+    <div class="nav-item has-submenu">  <!-- Clases clave -->
+        <a href="index.html" class="parent-link submenu-toggle">Inicio</a>
+        <div class="submenu">
+            <a href="index.html#store">Tienda</a>
+            <a href="index.html#tools">Convertidor</a>
+			<a href="index.html#fuentes">Fuentes</a>
+        </div>
+    </div>
+<div class="nav-item has-submenu">  <!-- Clases clave -->
+        <a href="stickers.html" class="parent-link submenu-toggle">Recursos</a>
+        <div class="submenu">
+            <a href="stickers.html">Portadas para Historias</a>
+        </div>
+    </div>
+	<div class="nav-item has-submenu">  <!-- Clases clave -->
+        <a href="para emprendedores.html" class="parent-link submenu-toggle">Servicios</a>
+        <div class="submenu">
+            <a href="para emprendedores.html#planes-empresas">Planes</a>
+			<a href="para emprendedores.html">Para Emprendedores</a>
+        </div>
+    </div>
+	<div class="nav-item has-submenu">  <!-- Clases clave -->
+        <a href="para emprendedores.html" class="parent-link submenu-toggle">Info</a>
+        <div class="submenu">
+            <a href="nosotros.html">Nosotros</a>
+			<a href="contacto.html">Contacto</a>
+        </div>
+    </div>
+</nav>
+</header>
+
+
+    
+<section class="oculta">
+	<div style="position:relative; cursor:pointer; margin-left:20px;" id="carrito">
+    <img src="A_flat_vector_graphic_displays_a_shopping_cart.png" 
+         alt="Carrito" 
+         style="width:40px; filter: drop-shadow(0 0 2px #ff6b6b);"
+		 onclick="location.href='carrito.html'">
+
+    <!-- CONTADOR -->
+    <span id="contadorCarrito" 
+          style="
+            position:absolute;
+            top:-8px;
+            right:-8px;
+            background:#ff6b6b;
+            color:white;
+            font-size:13px;
+            font-weight:bold;
+            width:22px;
+            height:22px;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            border-radius:50%;
+            ">
+        0
+    </span>
+</div></section>
+<div id="carrito-panel">
+    <h4>Carrito:</h4>
+    <p>Productos en el carrito: <span id="itemsCarrito">0</span></p>
+    <button onclick="vaciarCarrito()">Vaciar carrito</button>
+</div>
+
+<!-- CONTENEDOR -->
+<section id="stickers" style="margin-top:90px;">
+
+    <h2 style="font-size:20px; margin-bottom:30px; text-align:center;">
+      Portadas para destacadas IG | Packs Gratis
+  </h2>
+
+    <div class="stickers-container">
+
+        <!-- PACK 1 -->
+<div class="sticker-block">
+
+  <h3 class="pack-title">PACK 1</h3>
+
+  <img src="ChatGPT Image 17 dic 2025, 10_46_10.png" class="sticker-img">
+
+  <!-- BOTONES -->
+  <div class="pack-actions">
+    <a href="packs/pack1.html" class="btn-pack">Ver pack</a>
+    <a href="packs/pack1.zip" download class="btn-download">Descargar</a>
+  </div>
+
+</div>
+
+
+        <!-- PACK 2 -->
+<div class="sticker-block">
+
+  <h3 class="pack-title">PACK 2</h3>
+
+  <img src="ChatGPT Image 17 dic 2025, 10_46_10.png" class="sticker-img">
+
+  <!-- BOTONES -->
+  <div class="pack-actions">
+    <a href="packs/pack1.html" class="btn-pack">Ver pack</a>
+    <a href="packs/pack1.zip" download class="btn-download">Descargar</a>
+  </div>
+
+</div>
+
+
+        <!-- PACK 3 -->
+<div class="sticker-block">
+
+  <h3 class="pack-title">PACK 3</h3>
+
+  <img src="FE44760E-0EED-48CC-86AE-F9022AA814B1.png" class="sticker-img">
+
+  <!-- BOTONES -->
+  <div class="pack-actions">
+    <a href="packs/pack1.html" class="btn-pack">Ver pack</a>
+    <a href="packs/pack1.zip" download class="btn-download">Descargar</a>
+  </div>
+
+</div>
+
+
+        <!-- PACK 4 -->
+<div class="sticker-block">
+
+  <h3 class="pack-title">PACK 4</h3>
+
+  <img src="FE44760E-0EED-48CC-86AE-F9022AA814B1.png" class="sticker-img">
+
+  <!-- BOTONES -->
+  <div class="pack-actions">
+    <a href="packs/pack1.html" class="btn-pack">Ver pack</a>
+    <a href="packs/pack1.zip" download class="btn-download">Descargar</a>
+  </div>
+
+</div>
+
+
+        <!-- PACK 5 -->
+<div class="sticker-block">
+
+  <h3 class="pack-title">PACK 5</h3>
+
+  <img src="FE44760E-0EED-48CC-86AE-F9022AA814B1.png" class="sticker-img">
+
+  <!-- BOTONES -->
+  <div class="pack-actions">
+    <a href="packs/pack1.html" class="btn-pack">Ver pack</a>
+    <a href="packs/pack1.zip" download class="btn-download">Descargar</a>
+  </div>
+
+</div>
+
+
+    </div>
+</section>
+    <!-- ================================ -->
+    <!--        PAGO Y PERSONALIZADOS     -->
+    <!-- ================================ -->
+
+    <section class="oculta"><h2 style="font-size:28px; margin:60px 0 20px;">
+        De Pago & Personalizados
+    </h2></section>
+
+    <div class="paid-container">
+
+        <!-- EJEMPLO PRODUCTO -->
+            <div class="paid-info">
+            </div>
+        </div>
+
+
+<section class="oculta"><h2>PACK 1</h2>
+<div class="hilera">
+   <img src="ChatGPT Image 20 nov 2025, 03_07_55 p.m..png">
+   <img src="ChatGPT Image 20 nov 2025, 03_07_55 p.m..png">
+   <img src="ChatGPT Image 20 nov 2025, 03_07_55 p.m..png">
+</div>
+	<button onclick="agregarPack('PACK 1', 150)" class="btn-carrito">
+   Comprar PACK 1 ($150)
+</button>
+	<h2>PACK 2</h2>
+<div class="hilera">
+   <img src="pack1-1.png">
+   <img src="pack1-2.png">
+   <img src="pack1-3.png">
+</div>
+<button onclick="agregarPack('PACK 2', 200)" class="btn-carrito">
+   Comprar PACK 2 ($200)
+</button>
+<h2>PACK 3</h2>
+<div class="hilera">
+   <img src="pack1-1.png">
+   <img src="pack1-2.png">
+   <img src="pack1-3.png">
+</div>
+	<button onclick="agregarPack('PACK 3', 200)" class="btn-carrito">
+   Comprar PACK 3 ($200)
+		</button>
+		</section>
+	
+
+
+<!-- FOOTER -->
+<footer>
+	<div class="footer-social">
+  <a href="https://www.instagram.com/numakestudio" target="_blank" aria-label="Instagram Numake">
+    <img src="logo instagram footer.png" alt="Instagram Numake" class="footer-ig">
+  </a>
+</div>
+  <h3><a href="https://numakestudio.com/"> <img src="LOGO NUEVO RENOVADO NUMAKE footer.png" alt="numake." style="height:50px;width:auto;"></a></h3>
+
+  <nav>
+    <ul>
+      <li><a href="nosotros.html">Nosotros</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+      <li><a href="politicas.html">Políticas</a></li>
+      <li><a href="stickers.html">Portadas para Historias</a></li>
+	  <li><a href="para emprendedores.html">Para Emprendedores</a></li>
+      <section class="oculta"><li><a href="carrito.html">Carrito</a></li></section>
+	  <li><a href="preguntas frecuentes.html">Preguntas Frecuentes</a></li>
+    </ul>
+  </nav>
+
+  <p>© 2026 NuMakeStudio - Todos los derechos reservados.</p>
+</footer>
+
+<script>
+document.querySelectorAll("input[name='metodo']").forEach(r => {
+    r.addEventListener("change", () => {
+        let box = document.getElementById("resultado-pago");
+
+        // --- MercadoPago ---
+        if (r.value === "mp") {
+            box.innerHTML = `
+                <a href="https://www.mercadopago.com.uy/checkout/v1/redirect?preference-id=TU_ID_DE_PREFERENCIA"
+                class="btn-pago">Pagar con MercadoPago</a>
+            `;
+        }
+
+        // --- PayPal ---
+        if (r.value === "paypal") {
+            box.innerHTML = `
+                <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                    <input type="hidden" name="cmd" value="_xclick">
+                    <input type="hidden" name="business" value="TU_EMAIL_PAYPAL">
+                    <input type="hidden" name="item_name" value="Wallpaper Pack Premium">
+                    <input type="hidden" name="amount" value="3.00">
+                    <input type="hidden" name="currency_code" value="USD">
+                    <button class="btn-pago">Pagar con PayPal</button>
+                </form>
+            `;
+        }
+
+        // --- Transferencia ---
+        if (r.value === "transf") {
+            box.innerHTML = `
+                <div class="transf-box">
+                    <h3>Datos para transferencia</h3>
+                    <p><strong>Banco:</strong> BROU</p>
+                    <p><strong>Cuenta:</strong> 123456789</p>
+                    <p><strong>Nombre:</strong> CreativoLabStudio</p>
+                    <p>Luego de transferir, enviá el comprobante a:</p>
+                    <a href="mailto:creativolabstudio@gmail.com" class="btn-pago">Enviar Comprobante</a>
+                </div>
+            `;
+        }
+    });
+});
+</script>
+
+<script>
+let contador = 0;
+
+function agregarAlCarrito() {
+    contador++;
+    document.getElementById("contadorCarrito").textContent = contador;
+}
+</script>
+
+<script>
+let contador = 0;
+
+// --- Cargar desde localStorage ---
+if (localStorage.getItem("carritoCount")) {
+    contador = parseInt(localStorage.getItem("carritoCount"));
+    document.getElementById("contadorCarrito").textContent = contador;
+    document.getElementById("itemsCarrito").textContent = contador;
+}
+
+// --- Agregar ---
+function agregarAlCarrito() {
+    contador++;
+    updateCarrito();
+}
+
+// --- Quitar ---
+function quitarDelCarrito() {
+    if (contador > 0) contador--;
+    updateCarrito();
+}
+
+// --- Vaciar ---
+function vaciarCarrito() {
+    contador = 0;
+    updateCarrito();
+}
+
+// --- Actualizar contador global ---
+function updateCarrito() {
+    document.getElementById("contadorCarrito").textContent = contador;
+    document.getElementById("itemsCarrito").textContent = contador;
+
+    // animación
+    let c = document.getElementById("contadorCarrito");
+    c.classList.remove("bounce");
+    void c.offsetWidth; // reset animación
+    c.classList.add("bounce");
+
+    // guardar persistente
+    localStorage.setItem("carritoCount", contador);
+}
+</script>
+<script>
+function agregarAlCarrito(nombre, precio) {
+    let contador = localStorage.getItem("carritoCount");
+    contador = contador ? parseInt(contador) + 1 : 1;
+
+    localStorage.setItem("carritoCount", contador);
+    document.getElementById("contadorCarrito").textContent = contador;
+
+    // guardamos productos
+    let carrito = JSON.parse(localStorage.getItem("carritoItems")) || [];
+    carrito.push({ producto: nombre, precio: precio });
+    localStorage.setItem("carritoItems", JSON.stringify(carrito));
+
+    // animación
+    document.getElementById("contadorCarrito").classList.add("bounce");
+    setTimeout(() => {
+        document.getElementById("contadorCarrito").classList.remove("bounce");
+    }, 300);
+}
+function agregarPack(nombre, precio, imagen) {
+
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+    // Si el pack ya existe, solo suma cantidad
+    let item = carrito.find(p => p.nombre === nombre);
+
+    if (item) {
+        item.cantidad++;
+    } else {
+        carrito.push({
+            nombre: nombre,
+            precio: precio,
+            imagen: imagen,
+            cantidad: 1
+        });
+    }
+
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+    actualizarContador();
+
+    location.href = "carrito.html"; // redirige
+}
+</script>
+<script>
+// ------------------------------
+// Agregar pack al carrito
+// ------------------------------
+function agregarPack(nombre, precio) {
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+    // Buscar si el pack ya existe
+    let item = carrito.find(p => p.nombre === nombre);
+
+    if (item) {
+        item.cantidad++;
+    } else {
+        carrito.push({
+            nombre: nombre,
+            precio: precio,
+            cantidad: 1
+        });
+    }
+
+    // Guardar
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+
+    // Actualizar contador global
+    actualizarContador();
+
+}
+
+// ------------------------------
+// Actualizar contador en el header
+// ------------------------------
+function actualizarContador() {
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+    let total = carrito.reduce((acc, p) => acc + p.cantidad, 0);
+
+    let badge = document.getElementById("contadorCarrito");
+    if (badge) {
+        badge.textContent = total;
+        badge.classList.remove("bounce");
+        void badge.offsetWidth;
+        badge.classList.add("bounce");
+    }
+
+    // guardar también el número del contador
+    localStorage.setItem("carritoCount", total);
+}
+
+// cargar contador al entrar
+actualizarContador();
+</script>
+<script>
+document.querySelector(".menu-btn").addEventListener("click", function(){
+    document.querySelector(".nav").classList.toggle("active");
+});
+	</script>
+<script>
+// Cerrar menú móvil al tocar cualquier link interno (#)
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function() {
+        if (window.innerWidth <= 768) {
+            document.getElementById('navMenu').classList.remove('active');
+        }
+    });
+});
+
+	</script>
+<script>
+// Manejo de submenús en móvil
+document.querySelectorAll('.has-submenu > .submenu-toggle').forEach(item => {
+    item.addEventListener('click', function(e) {
+        // Solo actuar en pantallas móviles (≤768px)
+        if (window.innerWidth <= 768) {
+            e.preventDefault(); // Evita que siga el enlace al tocar
+            
+            const parent = this.parentElement; // el .nav-item
+            parent.classList.toggle('open'); // agrega o quita la clase .open
+        }
+    });
+});
+</script>	
+	</body>
+</html>

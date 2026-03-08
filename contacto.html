@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - NuMakeStudio</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon-numake.ico">
+
+    <!-- Google Fonts - Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* =================================== */
+        /* RESETEO Y GENERALES */
+        /* =================================== */
+        * { box-sizing: border-box; }
+        html, body {
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+        body {
+            background: linear-gradient(180deg, #000000 0%, #000000 100%);
+            color: #fff;
+            font-family: "Poppins", sans-serif;
+        }
+
+        /* =================================== */
+        /* HEADER FIXED COMPLETO */
+        /* =================================== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: #000000;
+            padding: 15px 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+            border-bottom: 1px solid #111;
+        }
+        .header .logo {
+            height: 25px;
+            margin-bottom: 10px;
+        }
+
+        /* Barra con flecha */
+        .menu-bar {
+padding: 8px 0;
+        }
+        .arrow {
+            font-size: 20px;
+            opacity: 0.7;
+            color: #ffffff;
+            transition: transform 0.45s ease;
+        }
+        .menu-wrapper.open .arrow {
+            transform: rotate(180deg);
+        }
+
+        /* Panel del menú desplegable */
+        .menu-panel {
+            position: fixed;
+            top: 110px; /* Justo debajo de la barra (sin espacio vacío) */
+            left: 0;
+            width: 100%;
+            background: #000000; /* Negro puro */
+            max-height: 70vh;
+            overflow-y: auto;
+            transform: scaleY(0);
+            transform-origin: top;
+            opacity: 0;
+            pointer-events: none;
+            transition: transform 0.45s ease, opacity 0.35s ease;
+            z-index: 998;
+			
+        }
+        .menu-wrapper.open .menu-panel {
+            transform: scaleY(1);
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* Overlay oscuro */
+        .menu-wrapper::before {
+            content: '';
+            position: fixed;
+            top: 110px;
+            left: 0;
+            width: 100%;
+            height: 70vh;
+            background: rgba(0, 0, 0, 0.98);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s ease;
+            z-index: 997;
+        }
+        .menu-wrapper.open::before {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Grid del menú centrado */
+        .menu {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 30px;
+            padding: 50px 20px 60px; /* Más padding arriba y abajo para aire */
+            margin: 0 auto;
+            max-width: 1100px;
+            justify-content: center;
+            justify-items: center;
+            list-style: none;
+        }
+
+        /* Títulos de las secciones destacados */
+        .menu .parent-link {
+            font-size: 18px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        /* Subopciones */
+        .submenu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .submenu a {
+            font-size: 14px;
+            color: #aaa;
+            display: block;
+            margin-bottom: 8px;
+        }
+        .submenu a:hover {
+            color: #ffffff;
+        }
+
+        /* Animación escalonada */
+        .menu > li {
+            text-align: center;
+            opacity: 0;
+            transform: translateY(-8px);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+        .menu-wrapper.open .menu > li {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .menu > li:nth-child(1) { transition-delay: 0.05s; }
+        .menu > li:nth-child(2) { transition-delay: 0.1s; }
+        .menu > li:nth-child(3) { transition-delay: 0.15s; }
+        .menu > li:nth-child(4) { transition-delay: 0.2s; }
+        .menu > li:nth-child(5) { transition-delay: 0.25s; }
+
+        @media (min-width: 900px) {
+            .menu {
+                grid-template-columns: repeat(5, 1fr);
+                max-width: 1000px;
+                gap: 40px;
+            }
+        }
+
+        /* =================================== */
+        /* CONTENIDO PRINCIPAL */
+        /* =================================== */
+        .contacto {
+            max-width: 600px;
+            margin: 150px auto 60px; /* Espacio para header fixed */
+            padding: 30px;
+        }
+        .contacto h2 { text-align: center; margin-bottom: 10px; }
+        .contacto p { text-align: center; margin-bottom: 30px; font-size: 14px; opacity: 0.8; }
+        .contacto form { display: flex; flex-direction: column; gap: 12px; }
+        .contacto input, .contacto textarea, .contacto select {
+            padding: 12px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-family: inherit;
+        }
+        .contacto textarea { min-height: 120px; resize: vertical; }
+        .contacto button {
+            padding: 12px;
+            border: none;
+            background: #222;
+            color: #fff;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .contacto button:hover { opacity: 0.85; }
+        .mail-contacto {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 14px;
+        }
+        .mail-contacto em { font-style: italic; opacity: 0.8; }
+        .mail-contacto a { color: #000000; text-decoration: none; }
+
+        /* =================================== */
+        /* FOOTER */
+        /* =================================== */
+        footer {
+            width: 100%;
+            background: #000000;
+            padding: 50px 20px;
+            text-align: center;
+            color: #888;
+        }
+        footer nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 30px 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        footer nav ul li a {
+            color: #888;
+            text-decoration: none;
+            font-size: 14px;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        /* Subrayado al hover en links del footer */
+        footer nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -4px;
+            left: 50%;
+            background-color: #888;
+            transition: width 0.3s ease, left 0.3s ease;
+        }
+        footer nav ul li a:hover {
+            color: #ffffff;
+        }
+        footer nav ul li a:hover::after {
+            width: 100%;
+            left: 0;
+        }
+
+        footer p { color: #222; font-size: 14px; margin-top: 20px; }
+        .footer-social { display: flex; justify-content: center; margin-bottom: 20px; }
+        .footer-ig { width: 60px; opacity: 0.8; transition: opacity 0.2s ease; }
+        .footer-ig:hover { opacity: 1; }
+        .hover-underline { position: relative; color: #fff; text-decoration: none; }
+        .hover-underline::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -3px;
+            width: 0%;
+            height: 2px;
+            background-color: #fff;
+            transition: width 0.3s ease;
+        }
+        .hover-underline:hover::after { width: 100%; }
+   /* ============================================= */
+/* FORZAR VISIBILIDAD DE SUBMENÚS (SOLUCIÓN FINAL) */
+/* ============================================= */
+
+/* Los submenús siempre visibles cuando el panel está abierto */
+.menu-panel.open .submenu,
+.menu-panel .submenu {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    max-height: none !important;
+    overflow: visible !important;
+    position: static !important;
+    transform: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    padding: 12px 0 20px 0;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Estilo de las subopciones */
+.menu .submenu a {
+    display: block;
+    padding: 8px 0;
+    font-size: 14px;
+    color: #aaaaaa;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.menu .submenu a:hover {
+    color: #ffffff;
+    padding-left: 15px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 6px;
+}
+
+/* Asegurar que los títulos no se vean afectados */
+.parent-link {
+    display: block;
+    font-size: 18px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 12px;
+    text-decoration: none;
+} 
+	.oculto {
+display: none;
+}.arrow-img {
+  width: 14px;      /* ajustá tamaño */
+  height: auto;
+  cursor: pointer;
+	display: block;
+}
+.arrow-img {
+  transition: transform 0.3s ease;
+}
+
+.menu-open .arrow-img {
+  transform: rotate(180deg);
+}
+	/* FIX: Forzar centrado perfecto del menú desplegable */
+.menu-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;           /* ← muy importante */
+}
+
+.menu-panel {
+    width: 100%;
+    display: flex;                 /* cambio recomendado */
+    justify-content: center;
+}
+
+.menu {
+    width: 100%;
+    max-width: 1100px;             /* o 1000px como en la otra página */
+    margin: 0 auto !important;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    justify-content: center;
+    justify-items: center;
+    gap: 30px 40px;                /* un poco más de espacio horizontal */
+}
+
+/* Asegurar que cada <li> esté bien centrado en su celda */
+.menu > li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+	.custom-select-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.custom-select {
+    position: relative;
+    cursor: pointer;
+}
+
+.selected-option {
+    padding: 12px 16px;
+    background: #fff;
+    border: 1px solid #444;
+    border-radius: 8px;
+    color: #797979;
+    font-size: 14px;
+    transition: all 0.25s ease;
+}
+
+.selected-option::after {
+    content: '▼';
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 10px;
+    color: #aaa;
+    transition: transform 0.3s ease;
+}
+
+.custom-select.open .selected-option::after {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.options-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #222;
+    border: 1px solid #444;
+    border-radius: 0 0 8px 8px;
+    margin-top: 4px;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.35s ease-out;
+    z-index: 10;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+.custom-select.open .options-list {
+    max-height: 240px;          /* ajustá según cuántas opciones tengas */
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.option {
+    padding: 12px 16px;
+    color: #ddd;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.option:hover {
+    background: #333;
+    color: white;
+}
+
+.option.selected {
+    background: #2a2a2a;
+    font-weight: 500;
+}</style>
+</head>
+<body>
+
+    <!-- HEADER FIXED -->
+    <header class="header">
+        		<a href="https://numakestudio.com/">
+        <img src="logo numake 3.png" alt="NuMakeStudio" class="logo">
+			</a>
+
+        <div class="menu-wrapper" id="menuWrapper">
+
+
+<div class="menu-bar" id="menuToggle">
+<img src="flecha menu.png" alt="Abrir menú" class="arrow-img">
+</div>
+
+            <nav class="menu-panel">
+                <ul class="menu">
+                    <li>
+                        <a href="index.html" class="parent-link">Inicio</a>
+                        <div class="submenu">
+                            <a href="index.html#store">Tienda</a>
+                            <a href="index.html#tools">Convertidor</a>
+                            <a href="index.html#fuentes">Fuentes</a>
+                        </div>
+                    </li>
+
+                    <li>
+                        <a class="parent-link">Servicios</a>
+                        <div class="submenu">
+                            <a href="para emprendedores.html#planes-empresas">Planes</a>
+                            <a href="para emprendedores.html">Para Emprendedores</a>
+                        </div>
+                    </li>
+
+                    <section class="oculto"><li>
+                        <a class="parent-link">Recursos</a>
+                        <div class="submenu">
+                            <a href="Portadas.html">Portadas para Historias</a>
+                        </div>
+                    </li></section>
+
+                    <li>
+                        <a class="parent-link">Portfolio</a>
+                        <div class="submenu">
+                            <a href="portfolio.html">Portfolio</a>
+                        </div>
+                    </li>
+
+                    <li>
+                        <a class="parent-link">Info</a>
+                        <div class="submenu">
+                            <a href="nosotros.html">Nosotros</a>
+                            <a href="contacto.html">Contacto</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- CONTENIDO -->
+    <section class="contacto" id="contacto">
+        <h2>Contacto</h2>
+        <p>Completá el formulario y me contacto con vos.</p>
+
+        <form action="https://formspree.io/f/xzdbqlpz" method="POST">
+            <input type="hidden" name="Asunto" value="Consulta">
+            <input type="text" name="Nombre" placeholder="Nombre" required>
+            <input type="email" name="Email" placeholder="Email" required>
+            <input type="text" name="telefono" placeholder="Teléfono (opcional)">
+<!-- Reemplaza el <select> original por esto -->
+<div class="custom-select-wrapper">
+    <div class="custom-select" id="customPlanSelect">
+        <div class="selected-option">Plan de interés</div>
+        <div class="options-list">
+            <div class="option" data-value="Plan Básico">Plan Básico</div>
+            <div class="option" data-value="Plan Pyme">Plan Pyme</div>
+            <div class="option" data-value="Plan Empresa">Plan Empresa</div>
+            <div class="option" data-value="Plan Marca">Plan Marca</div>
+            <div class="option" data-value="Otros">Otros</div>
+        </div>
+    </div>
+    <!-- Campo oculto para enviar el valor real al formulario -->
+    <input type="hidden" name="Plan" id="hiddenPlan" value="">
+</div>
+            <textarea name="Mensaje" placeholder="Contame brevemente sobre tu proyecto"></textarea>
+            <button type="submit">Enviar mensaje</button>
+        </form>
+
+        <p class="mail-contacto">
+            <em>Si tenés dudas o querés un diseño personalizado, escribime a:</em><br>
+            <a href="mailto:numakestudio@gmail.com">
+                <span class="hover-underline"><strong>numakestudio@gmail.com</strong></span>
+            </a>
+        </p>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-social">
+            <a href="https://www.instagram.com/numakestudio" target="_blank" aria-label="Instagram Numake">
+                <img src="logo instagram footer.png" alt="Instagram Numake" class="footer-ig">
+            </a>
+        </div>
+        <a href="https://numakestudio.com/">
+            <img src="logo numake 3 footer.png" alt="numake." style="height:50px;width:auto;">
+        </a>
+        <nav>
+            <ul>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="politicas.html">Políticas</a></li>
+                <section class="oculto"><li><a href="Portadas.html">Portadas para Historias</a></li></section>
+                <li><a href="para emprendedores.html">Para Emprendedores</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="preguntas frecuentes.html">Preguntas Frecuentes</a></li>
+            </ul>
+        </nav>
+        <p>© 2026 NuMakeStudio. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        const wrapper = document.getElementById("menuWrapper");
+        const toggle = document.getElementById("menuToggle");
+
+        toggle.addEventListener("click", () => {
+            wrapper.classList.toggle("open");
+        });
+		
+		document.getElementById("menuToggle").addEventListener("click", function () {
+this.classList.toggle("menu-open");
+});
+    </script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const select = document.getElementById('customPlanSelect');
+    const selected = select.querySelector('.selected-option');
+    const options = select.querySelectorAll('.option');
+    const hiddenInput = document.getElementById('hiddenPlan');
+
+    // Toggle al hacer click
+    selected.addEventListener('click', () => {
+        select.classList.toggle('open');
+    });
+
+    // Cerrar al clickear fuera
+    document.addEventListener('click', (e) => {
+        if (!select.contains(e.target)) {
+            select.classList.remove('open');
+        }
+    });
+
+    // Seleccionar opción
+    options.forEach(opt => {
+        opt.addEventListener('click', () => {
+            options.forEach(o => o.classList.remove('selected'));
+            opt.classList.add('selected');
+            selected.textContent = opt.textContent;
+            hiddenInput.value = opt.dataset.value;
+            select.classList.remove('open');
+        });
+    });
+
+    // Marcar la primera como seleccionada por defecto
+    options[0].classList.add('selected');
+});
+</script>
+</body>
+</html>
+

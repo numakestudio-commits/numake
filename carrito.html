@@ -1,0 +1,827 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carrito - CreativoLabStudio</title>
+	<link rel="icon" type="image/x-icon" href="favicon numake.ico">
+
+
+<!-- Fuente -->
+<link href="https://fonts.googleapis.com/css2?family=Michland&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+/* ---------------------------------- */
+/* RESETEO Y COLORES GENERALES */
+/* ---------------------------------- */
+*{ box-sizing:border-box; }
+html, body{
+    margin:0;
+    padding:0;
+}
+body{
+    background:linear-gradient(180deg,#ffffff 0%, #ffffff 100%);
+    color:#000000;
+    font-family:  Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+
+/* ---------------------------------- */
+/* HEADER */
+/* ---------------------------------- */
+.header{
+    width:100%;
+    background:#000000;
+    padding:15px 50px;             /* ← espacio extra para que NO quede pegado */
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:fixed;
+    top:0;
+    z-index:999;
+}
+
+.header img{
+    height:50px;
+}
+
+/* Menú */
+.nav{
+    display:flex;
+    gap:15px;            /* separación entre botones */
+}
+
+.nav a{
+    color:#fff;
+    text-decoration:none;
+    font-size:16px;
+}
+
+.menu-btn{
+    display:none;
+    color:#fff;
+    font-size:28px;
+    cursor:pointer;
+}
+
+/* Modo móvil */
+@media (max-width: 768px){
+    .menu-btn{ display:block; }
+
+    .nav{
+        display:none;
+        flex-direction:column;
+        position:absolute;
+        left:0;
+        top:70px;
+        width:100%;
+        background:#111;
+        padding:10px 0;
+        border-top:2px solid #ff0055;
+    }
+
+    .nav a{
+        padding:15px;
+        border-bottom:1px solid #222;
+    }
+
+    .nav.active{
+        display:flex;
+    }
+}
+
+/* ---------------------------------- */
+/* CONTENEDOR */
+/* ---------------------------------- */
+.contenedor{
+    max-width:1000px;
+    margin:150px auto 60px;         /* ← espacio para que NO se pegue al header */
+    padding:30px;
+    background:#ffffff;             /* color del recuadro */
+    border-radius:0;                /* puntas rectas */
+    min-height:600px;               /* ← contenedor estable que NO se achica */
+}
+
+/* ---------------------------------- */
+/* FOOTER */
+/* ---------------------------------- */
+footer{
+    width:100%;
+    background:#000000;
+    padding:50px 20px;
+    text-align:center;
+}
+
+footer h3{
+    font-family:'symtext';
+    font-size:40px;
+    margin-bottom:25px;
+	color:#666666;
+}
+
+footer nav ul{
+    list-style:none;
+    padding:0;
+    margin:0 0 30px 0;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:20px;
+}
+
+footer nav ul li a{
+    color:#888;
+    text-decoration:none;
+}
+
+footer p{
+    color:#888;
+    font-size:14px;
+    margin-top:20px;
+}
+.contenedor {
+  max-width: 1000px;
+  margin: 150px auto 60px;
+  padding: 30px;
+  background-color: #ffffff !important; /* fondo sólido, sin pixelado */
+  background-image: none !important;    /* quita cualquier imagen */
+  background-repeat: no-repeat !important;
+  background-size: auto !important;
+  border-radius: 0 !important;
+  min-height: 600px;
+}
+	header .nav a:hover,
+footer nav ul li a:hover {
+    text-decoration: underline !important;
+}
+
+/* --- CARRITO ANIMACIÓN --- */
+.bounce {
+    animation: bounce 0.3s ease;
+}
+
+@keyframes bounce {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.25); }
+    100% { transform: scale(1); }
+}
+
+/* --- PANEL DEL CARRITO --- */
+#carrito-panel {
+    position:absolute;
+    top:60px;
+    right:0;
+    width:260px;
+    background:#0f1828;
+    border:1px solid #ff6b6b;
+    padding:15px;
+    display:none;
+    border-radius:10px;
+    z-index:9999;
+}
+
+#carrito:hover #carrito-panel {
+    display:block;
+}
+
+#carrito-panel h4 {
+    margin:0 0 10px 0;
+    font-size:18px;
+    color:#ff6b6b;
+}
+
+#carrito-panel button {
+    width:100%;
+    padding:10px;
+    background:#ff6b6b;
+    border:none;
+    color:#fff;
+    font-weight:bold;
+    cursor:pointer;
+    border-radius:8px;
+}
+
+#carrito-panel button:hover {
+    opacity:0.8;
+}
+/* 🔥 FORZAR ESPACIADO DEL FOOTER 🔥 */
+footer nav ul {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 20px 0 !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 20px !important;
+}
+
+footer nav ul li a {
+    text-decoration: none !important;
+    color: inherit !important;
+    font-size: 15px !important;
+}
+
+footer nav ul li a:hover {
+    text-decoration: underline !important;
+}
+.item-carrito {
+    display: flex;
+    align-items: center;
+    background: #0f1724;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #1e293b;
+}
+
+.img-carrito {
+    width: 80px;
+    border-radius: 8px;
+    margin-right: 15px;
+}
+
+.info-carrito h3 {
+    margin: 0 0 5px 0;
+}
+
+.cantidad-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.btn-cant {
+    background: #ff6b6b;
+    border: none;
+    color: white;
+    padding: 5px 12px;
+    font-size: 18px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-cant:hover {
+    opacity: 0.8;
+}
+
+.eliminar {
+    margin-left: auto;
+    background: transparent;
+    color: #ff6b6b;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.eliminar:hover {
+    color: white;
+}
+form {
+    display: flex;
+    flex-direction: column; /* 🔥 Hace que todo esté uno abajo del otro */
+    gap: 12px; /* Espacio entre cada campo */
+    margin-top: 20px;
+}
+
+form label {
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+form input {
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+    background: #0b1220;
+    color: #e6eef6;
+    font-size: 16px;
+}
+
+.boton-pagar {
+    margin-top: 15px;
+    padding: 12px;
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.boton-pagar:hover {
+    opacity: 0.9;
+}
+</style>
+
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+    <a href="https://creativolabstudio.com/">
+        <img src="logo logo numake.png" alt="CreativoLab Studio">
+    </a>
+
+
+
+    
+    </nav>
+<div style="position:relative; cursor:pointer; margin-left:20px;" id="carrito">
+    <img src="A_flat_vector_graphic_displays_a_shopping_cart.png" 
+         alt="Carrito" 
+         style="width:40px; filter: drop-shadow(0 0 2px #ff6b6b);">
+
+    <!-- CONTADOR -->
+    <span id="contadorCarrito" 
+          style="
+            position:absolute;
+            top:-8px;
+            right:-8px;
+            background:#ff6b6b;
+            color:white;
+            font-size:13px;
+            font-weight:bold;
+            width:22px;
+            height:22px;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            border-radius:50%;
+            ">
+        0
+    </span>
+</div>
+<div id="carrito-panel">
+    <h4>Carrito:</h4>
+    <p>Productos en el carrito: <span id="itemsCarrito">0</span></p>
+    <button onclick="vaciarCarrito()">Vaciar carrito</button>
+</div>
+</header>
+
+<!-- CONTENEDOR -->
+<div class="contenedor">
+
+    <h1>Carrito de Compra</h1>
+
+    <!-- 🔥 LISTADO REAL DE PRODUCTOS -->
+    <div id="lista-carrito"></div>
+
+    <!-- 🔥 TOTAL GENERAL -->
+    <div class="total-box" id="total-general">
+        Total: $0
+    </div>
+	
+	<h2>Método de Pago</h2>
+
+<div class="metodos" style="margin-bottom:20px;">
+    <label><input type="radio" name="metodo" value="mp"> MercadoPago</label><br>
+    <label><input type="radio" name="metodo" value="paypal"> PayPal</label><br>
+    <label><input type="radio" name="metodo" value="transf"> Transferencia Bancaria</label>
+</div>
+
+<!-- Resultado dinámico -->
+<div id="resultado-pago" style="margin-top:15px;"></div>
+
+
+    <!-- 🔥 FORMULARIO CLIENTE -->
+    <h2>Datos del Comprador</h2>
+
+    <form>
+        <label>Nombre completo</label>
+        <input type="text" required>
+
+        <label>Email</label>
+        <input type="email" required>
+
+        <label>Dirección (opcional)</label>
+        <input type="text">
+
+        <label>Mensaje (opcional)</label>
+        <input type="text">
+
+        <button class="boton-pagar">Finalizar Pago</button>
+    </form>
+
+</div>
+
+
+<!-- FOOTER -->
+<footer>
+  <h3><a href="https://creativolabstudio.com/" style="color:#666666; text-decoration:none;">numake.</a></h3>
+
+  <nav>
+    <ul>
+      <li><a href="nosotros.html">Nosotros</a></li>
+      <li><a href="contacto.html">Personalizado</a></li>
+      <li><a href="politicas.html">Políticas</a></li>
+      <li><a href="stickers.html">Stickers</a></li>
+      <li><a href="wallpapers.html">Wallpapers</a></li>
+      <li><a href="logos.html">Logos</a></li>
+      <li><a href="carrito.html">Carrito</a></li>
+    </ul>
+  </nav>
+
+  <p>© 2025 NuMakeStudio - Todos los derechos reservados.</p>
+</footer>
+
+<script>
+document.querySelectorAll("input[name='metodo']").forEach(r => {
+    r.addEventListener("change", () => {
+        let box = document.getElementById("resultado-pago");
+
+        // --- MercadoPago ---
+        if (r.value === "mp") {
+            box.innerHTML = `
+                <a href="https://www.mercadopago.com.uy/checkout/v1/redirect?preference-id=TU_ID_DE_PREFERENCIA"
+                class="btn-pago">Pagar con MercadoPago</a>
+            `;
+        }
+
+        // --- PayPal ---
+        if (r.value === "paypal") {
+            box.innerHTML = `
+                <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                    <input type="hidden" name="cmd" value="_xclick">
+                    <input type="hidden" name="business" value="TU_EMAIL_PAYPAL">
+                    <input type="hidden" name="item_name" value="Wallpaper Pack Premium">
+                    <input type="hidden" name="amount" value="3.00">
+                    <input type="hidden" name="currency_code" value="USD">
+                    <button class="btn-pago">Pagar con PayPal</button>
+                </form>
+            `;
+        }
+
+        // --- Transferencia ---
+        if (r.value === "transf") {
+            box.innerHTML = `
+                <div class="transf-box">
+                    <h3>Datos para transferencia</h3>
+                    <p><strong>Banco:</strong> BROU</p>
+                    <p><strong>Cuenta:</strong> 123456789</p>
+                    <p><strong>Nombre:</strong> CreativoLabStudio</p>
+                    <p>Luego de transferir, enviá el comprobante a:</p>
+                    <a href="mailto:creativolabstudio@gmail.com" class="btn-pago">Enviar Comprobante</a>
+                </div>
+            `;
+        }
+    });
+});
+</script>
+
+<script>
+let contador = 0;
+
+function agregarAlCarrito() {
+    contador++;
+    document.getElementById("contadorCarrito").textContent = contador;
+}
+</script>
+
+<script>
+let contador = 0;
+
+// --- Cargar desde localStorage ---
+if (localStorage.getItem("carritoCount")) {
+    contador = parseInt(localStorage.getItem("carritoCount"));
+    document.getElementById("contadorCarrito").textContent = contador;
+    document.getElementById("itemsCarrito").textContent = contador;
+}
+
+// --- Agregar ---
+function agregarAlCarrito() {
+    contador++;
+    updateCarrito();
+}
+
+// --- Quitar ---
+function quitarDelCarrito() {
+    if (contador > 0) contador--;
+    updateCarrito();
+}
+
+// --- Vaciar ---
+function vaciarCarrito() {
+    contador = 0;
+    updateCarrito();
+}
+
+// --- Actualizar contador global ---
+function updateCarrito() {
+    document.getElementById("contadorCarrito").textContent = contador;
+    document.getElementById("itemsCarrito").textContent = contador;
+
+    // animación
+    let c = document.getElementById("contadorCarrito");
+    c.classList.remove("bounce");
+    void c.offsetWidth; // reset animación
+    c.classList.add("bounce");
+
+    // guardar persistente
+    localStorage.setItem("carritoCount", contador);
+}
+</script>
+<script>
+// ------------------------------
+// Cargar carrito desde localStorage
+// ------------------------------
+function cargarCarrito() {
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+    let contenedor = document.getElementById("lista-carrito");
+    contenedor.innerHTML = "";
+
+    if(carrito.length === 0){
+        contenedor.innerHTML = `<p class="vacio">Tu carrito está vacío 😢</p>`;
+        document.getElementById("total-general").innerHTML = "Total: $0";
+        return;
+    }
+
+    let totalGeneral = 0;
+
+    carrito.forEach((item, index) => {
+        let itemTotal = item.precio * item.cantidad;
+        totalGeneral += itemTotal;
+
+        contenedor.innerHTML += `
+            <div class="producto-carrito" 
+                 style="display:flex; justify-content:space-between; 
+                        background:#0b1220; padding:15px; 
+                        border-radius:10px; margin-bottom:10px;">
+
+                <div>
+                    <h3>${item.nombre}</h3>
+                    <p>Cantidad: ${item.cantidad}</p>
+                </div>
+
+                <div style="display:flex; flex-direction:column; text-align:right;">
+                    <span style="font-size:20px;">$${itemTotal}</span>
+                    <button onclick="eliminarItem(${index})"
+                            style="margin-top:10px; background:#ff6b6b; border:none; 
+                                   padding:8px 12px; border-radius:6px; color:white; 
+                                   cursor:pointer;">
+                        Eliminar
+                    </button>
+                </div>
+
+            </div>
+        `;
+    });
+
+    document.getElementById("total-general").innerHTML = "Total: $" + totalGeneral;
+}
+
+// ------------------------------
+// Eliminar un producto del carrito
+// ------------------------------
+function eliminarItem(index) {
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+    carrito.splice(index, 1);
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+    cargarCarrito();
+}
+
+// cargar al abrir
+cargarCarrito();
+</script>
+<script>
+document.querySelectorAll("input[name='metodo']").forEach(r => {
+    r.addEventListener("change", () => {
+        let box = document.getElementById("resultado-pago");
+
+        // --- MercadoPago ---
+        if (r.value === "mp") {
+            box.innerHTML = `
+                <a href="https://www.mercadopago.com.uy/checkout/v1/redirect?preference-id=TU_ID_DE_PREFERENCIA"
+                class="btn-pago" 
+                style="display:inline-block; padding:12px 20px; background:#ff6b6b; color:white; border-radius:8px; text-decoration:none; font-weight:bold;">
+                    Pagar con MercadoPago
+                </a>
+            `;
+        }
+
+        // --- PayPal ---
+        if (r.value === "paypal") {
+            box.innerHTML = `
+                <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                    <input type="hidden" name="cmd" value="_xclick">
+                    <input type="hidden" name="business" value="TU_EMAIL_PAYPAL">
+                    <input type="hidden" name="item_name" value="Compra en CreativoLabStudio">
+                    <input type="hidden" name="amount" value="3.00">
+                    <input type="hidden" name="currency_code" value="USD">
+                    <button class="btn-pago" 
+                    style="padding:12px 20px; background:#ff6b6b; color:white; border:none; border-radius:8px; cursor:pointer; font-weight:bold;">
+                        Pagar con PayPal
+                    </button>
+                </form>
+            `;
+        }
+
+        // --- Transferencia ---
+        if (r.value === "transf") {
+            box.innerHTML = `
+                <div class="transf-box" style="background:#0b1220; padding:15px; border-radius:8px; border:1px solid #ff6b6b;">
+                    <h3>Datos para transferencia</h3>
+                    <p><strong>Banco:</strong> BROU</p>
+                    <p><strong>Cuenta:</strong> 123456789</p>
+                    <p><strong>Nombre:</strong> CreativoLabStudio</p>
+                    <p>Luego de transferir, enviá el comprobante a:</p>
+                    <a href="mailto:creativolabstudio@gmail.com" 
+                       style="color:#ff6b6b; font-weight:bold; text-decoration:none;">
+                       Enviar comprobante
+                    </a>
+                </div>
+            `;
+        }
+    });
+});
+</script>
+<script>
+function cargarCarrito() {
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+    let contenedor = document.getElementById("listaCarrito");
+    let total = 0;
+
+    contenedor.innerHTML = "";
+
+    carrito.forEach(item => {
+        total += item.precio * item.cantidad;
+
+        contenedor.innerHTML += `
+        <div class="item-carrito">
+            <img src="${item.imagen}" class="img-carrito">
+
+            <div class="info-carrito">
+                <h3>${item.nombre}</h3>
+                <p class="precio">Precio: $${item.precio}</p>
+
+                <div class="cantidad-box">
+                    <button class="btn-cant" onclick="cambiarCantidad('${item.nombre}', -1)">−</button>
+                    <span class="cantidad" id="cant-${item.nombre}">${item.cantidad}</span>
+                    <button class="btn-cant" onclick="cambiarCantidad('${item.nombre}', 1)">+</button>
+                </div>
+            </div>
+
+            <button class="eliminar" onclick="eliminarProducto('${item.nombre}')">✖</button>
+        </div>`;
+    });
+
+    document.getElementById("totalPagar").textContent = total;
+}
+
+function cambiarCantidad(nombre, valor) {
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+    carrito = carrito.map(item => {
+        if (item.nombre === nombre) {
+            item.cantidad += valor;
+            if (item.cantidad < 1) item.cantidad = 1; // evita 0
+        }
+        return item;
+    });
+
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+
+    cargarCarrito();
+    actualizarContador();
+}
+
+function eliminarProducto(nombre) {
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+    carrito = carrito.filter(item => item.nombre !== nombre);
+
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+
+    cargarCarrito();
+    actualizarContador();
+}
+
+function actualizarContador() {
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+    let totalItems = carrito.reduce((sum, item) => sum + item.cantidad, 0);
+
+    document.getElementById("contadorCarrito").textContent = totalItems;
+}
+
+cargarCarrito();
+</script>
+<script>
+// ==========================================
+//   SISTEMA DE CARRITO — UNIFICADO Y FUNCIONAL
+// ==========================================
+
+// 🔥 Cargar carrito desde localStorage
+function cargarCarrito() {
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+    let contenedor = document.getElementById("lista-carrito");
+    let total = 0;
+
+    contenedor.innerHTML = "";
+
+    if (carrito.length === 0) {
+        contenedor.innerHTML = `<p class="vacio">Tu carrito está vacío 😢</p>`;
+        document.getElementById("total-general").textContent = "Total: $0";
+        return;
+    }
+
+    carrito.forEach(item => {
+        total += item.precio * item.cantidad;
+
+        contenedor.innerHTML += `
+        <div class="item-carrito">
+            <img src="${item.imagen}" class="img-carrito">
+
+            <div class="info-carrito">
+                <h3>${item.nombre}</h3>
+                <p class="precio">Precio: $${item.precio}</p>
+
+                <div class="cantidad-box">
+                    <button class="btn-cant" onclick="cambiarCantidad('${item.nombre}', -1)">−</button>
+                    <span class="cantidad" id="cant-${item.nombre}">${item.cantidad}</span>
+                    <button class="btn-cant" onclick="cambiarCantidad('${item.nombre}', 1)">+</button>
+                </div>
+            </div>
+
+            <button class="eliminar" onclick="eliminarProducto('${item.nombre}')">✖</button>
+        </div>`;
+    });
+
+    document.getElementById("total-general").textContent = "Total: $" + total;
+
+    actualizarContador();
+}
+
+// ==========================================
+//  SUMAR / RESTAR
+// ==========================================
+function cambiarCantidad(nombre, valor) {
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+    carrito = carrito.map(item => {
+        if (item.nombre === nombre) {
+            item.cantidad += valor;
+            if (item.cantidad < 1) item.cantidad = 1; 
+        }
+        return item;
+    });
+
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+    cargarCarrito();
+}
+
+// ==========================================
+//  ELIMINAR PRODUCTO
+// ==========================================
+function eliminarProducto(nombre) {
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+    carrito = carrito.filter(item => item.nombre !== nombre);
+
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+    cargarCarrito();
+}
+
+// ==========================================
+//   CONTADOR DEL CARRITO (global)
+// ==========================================
+function actualizarContador() {
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+    let totalItems = carrito.reduce((sum, item) => sum + item.cantidad, 0);
+
+    document.getElementById("contadorCarrito").textContent = totalItems;
+    document.getElementById("itemsCarrito").textContent = totalItems;
+}
+
+// ==========================================
+//   AGREGAR DESDE STICKERS
+// ==========================================
+function agregarPack(nombre, precio, imagen) {
+
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+    let item = carrito.find(p => p.nombre === nombre);
+
+    if (item) {
+        item.cantidad++;
+    } else {
+        carrito.push({
+            nombre: nombre,
+            precio: precio,
+            imagen: imagen,
+            cantidad: 1
+        });
+    }
+
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+
+    actualizarContador();
+
+    // ir directo al carrito
+    location.href = "carrito.html";
+}
+
+// cargar al abrir
+cargarCarrito();
+</script>
+</body>
+</html>
+
