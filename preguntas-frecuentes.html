@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Preguntas Frecuentes - NuMakeStudio</title>
+<link rel="icon" type="image/x-icon" href="img/favicon-numake.ico">
+<link href="https://fonts.googleapis.com/css2?family=Michland&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="numake-style.css">
+</head>
+<body>
+
+<header class="header">
+    <a href="index.html">
+        <img src="img/logo numake 3.png" alt="NuMakeStudio" class="logo">
+    </a>
+    <div class="menu-wrapper" id="menuWrapper">
+        <div class="menu-bar" id="menuToggle">
+            <img src="img/flecha menu.png" alt="Abrir menú" class="arrow-img">
+        </div>
+        <nav class="menu-panel">
+            <ul class="menu">
+                <li><a href="index.html" class="parent-link">Inicio</a></li>
+                <li><a href="portfolio.html" class="parent-link">Portfolio</a></li>
+                <li><a href="servicios.html" class="parent-link">Servicios</a></li>
+                <li><a href="contacto.html" class="parent-link">Contacto</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section class="hero" style="padding-bottom:20px;">
+    <h1>Preguntas frecuentes</h1>
+</section>
+
+<section class="block" style="padding-top:0; max-width:700px;">
+    <div class="faq-item">
+        <h2 class="toggle">¿Qué significa "1 pieza gráfica personalizada"?</h2>
+        <div class="content"><p>Significa una pieza visual hecha a medida para tu marca, pensada para un uso puntual en redes sociales. Puede ser un post, una historia o una portada destacada, a elección.</p></div>
+    </div>
+    <div class="faq-item">
+        <h2 class="toggle">¿Qué incluye una revisión o ajuste?</h2>
+        <div class="content"><p>Incluye una instancia de correcciones sobre el diseño entregado. Se pueden ajustar colores, textos o detalles simples según tu feedback.</p></div>
+    </div>
+    <div class="faq-item">
+        <h2 class="toggle">¿Puedo pedir más cambios?</h2>
+        <div class="content"><p>Sí. Las revisiones adicionales o cambios de concepto se cotizan aparte, según el alcance del ajuste solicitado.</p></div>
+    </div>
+    <div class="faq-item">
+        <h2 class="toggle">¿Entregás los archivos listos para usar?</h2>
+        <div class="content"><p>Sí. Los archivos se entregan optimizados y listos para publicar en redes sociales.</p></div>
+    </div>
+    <div class="faq-item">
+        <h2 class="toggle">¿Cómo es la forma de pago?</h2>
+        <div class="content"><p>Para iniciar un proyecto se solicita una seña del 50% del valor total. El 50% restante se abona al finalizar el trabajo, antes de la entrega de los archivos finales.</p></div>
+    </div>
+    <div class="faq-item">
+        <h2 class="toggle">¿Cuáles son los medios de pago?</h2>
+        <div class="content"><p>Aceptamos transferencias bancarias (Uruguay). Para clientes internacionales, transferencias internacionales o plataformas digitales a coordinar.</p></div>
+    </div>
+    <div class="faq-item">
+        <h2 class="toggle">¿Se puede pagar todo junto?</h2>
+        <div class="content"><p>Sí. En trabajos pequeños o packs cerrados, el pago se realiza 100% por adelantado.</p></div>
+    </div>
+    <div class="faq-item">
+        <h2 class="toggle">¿Qué pasa si quiero cancelar el proyecto?</h2>
+        <div class="content"><p>La seña inicial cubre el tiempo de trabajo y planificación realizada, por lo que no es reembolsable.</p></div>
+    </div>
+</section>
+
+<footer class="footer-simple">
+    <div class="footer-social">
+        <a href="https://www.instagram.com/numakestudio" target="_blank" aria-label="Instagram Numake">
+            <img src="img/logo instagram footer.png" alt="Instagram Numake" class="footer-ig">
+        </a>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="nosotros.html">Nosotros</a></li>
+            <li><a href="servicios.html">Servicios</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+            <li><a href="preguntas-frecuentes.html">Preguntas Frecuentes</a></li>
+            <li><a href="politicas.html">Políticas</a></li>
+        </ul>
+    </nav>
+    <p>© 2026 NuMakeStudio.</p>
+</footer>
+
+<script src="numake-menu.js"></script>
+<script>
+document.querySelectorAll('.faq-item .toggle').forEach(toggle => {
+    toggle.addEventListener('click', () => toggle.parentElement.classList.toggle('active'));
+});
+</script>
+</body>
+</html>
+

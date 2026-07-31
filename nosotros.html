@@ -1,894 +1,105 @@
-<!doctype html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nosotros - NuMakeStudio</title>
-
-<!-- Favicon -->
-<link rel="icon" type="image/x-icon" href="favicon-numake.ico">
-
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Michroma&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
-
-<!-- Fuente symtext -->
-<style>
-/* ---------------------------------- */
-/* RESETEO Y COLORES GENERALES */
-/* ---------------------------------- */
-*{ box-sizing:border-box; }
-html, body{
-    margin:0;
-    padding:0;
-}
-body{
-    background:linear-gradient(180deg,#060606 0%, #060606 100%);
-    color:#ffffff;
-    font-family: "Poppins", sans-serif;
-}
-
-/* ---------------------------------- */
-/* HEADER */
-/* ---------------------------------- */
-.header{
-    width:100%;
-    background:#000000;
-    padding:15px 50px;             /* ← espacio extra para que NO quede pegado */
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    position:fixed;
-    top:0;
-    z-index:999;
-}
-
-.header img{
-    height:px;
-}
-
-/* Menú */
-.nav{
-    display:flex;
-    gap:15px;            /* separación entre botones */
-}
-
-.nav a{
-    color:#fff;
-    text-decoration:none;
-    font-size:14px;
-}
-
-.menu-btn{
-    display:none;
-    color:#fff;
-    font-size:28px;
-    cursor:pointer;
-}
-
-/* Modo móvil */
-@media (max-width: 768px){
-    .menu-btn{ display:block; }
-
-    .nav{
-        display:none;
-        flex-direction:column;
-        position:absolute;
-        left:0;
-        top:70px;
-        width:100%;
-        background:#111;
-        padding:10px 0;
-        border-top:2px solid #000000;
-    }
-
-    .nav a{
-        padding:15px;
-        border-bottom:1px solid #222;
-    }
-
-    .nav.active{
-        display:flex;
-    }
-}
-
-/* ---------------------------------- */
-/* CONTENEDOR */
-/* ---------------------------------- */
-.contenedor{
-    max-width:1000px;
-    margin:150px auto 60px;         /* ← espacio para que NO se pegue al header */
-    padding:30px;
-    background:##0b1220;             /* color del recuadro */
-    border-radius:0;                /* puntas rectas */
-    min-height:600px;               /* ← contenedor estable que NO se achica */
-}
-
-/* ---------------------------------- */
-/* FOOTER */
-/* ---------------------------------- */
-footer{
-    width:100%;
-    background:#060606;
-    padding:50px 20px;
-    text-align:center;
-}
-
-footer h3{
-    font-family:'symtext';
-    font-size:40px;
-    margin-bottom:25px;
-	color:#666666;
-}
-
-footer nav ul{
-    list-style:none;
-    padding:0;
-    margin:0 0 30px 0;
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:20px;
-}
-
-footer nav ul li a{
-    color:#888;
-    text-decoration:none;
-}
-
-footer p{
-    color:#222;
-    font-size:14px;
-    margin-top:20px;
-}
-.contenedor {
-  max-width: 1000px;
-  margin: 150px auto 60px;
-  padding: 30px;
-  background-color: #07172a !important; /* fondo sólido, sin pixelado */
-  background-image: none !important;    /* quita cualquier imagen */
-  background-repeat: no-repeat !important;
-  background-size: auto !important;
-  border-radius: 0 !important;
-  min-height: 600px;
-}
-	header .nav a:hover,
-footer nav ul li a:hover {
-    text-decoration: none!important;
-}
-
-.footer-social {
-  display: flex;
-  justify-content: center; /* centro del footer */
-}
-
-.footer-ig {
-  width: 60px; /* tamaño */
-  opacity: 0.8;
-  transition: opacity 0.2s ease;
-}
-
-.footer-ig:hover {
-  opacity: 1;
-}
-
-footer {
-  position: relative;
-}
-
-.footer-social {
-  position: relative;
-  z-index: 10;
-}
-
-.footer-social a,
-.footer-social img {
-  pointer-events: auto;
-}
-
-.footer-ig {
-  display: block;
-}
-body {
-  font-size: 14px;
-}
-	/* ====================== */
-/* SUBMENÚ ADAPTADO - ESTILO NUMAKE (negro + rosa) */
-/* ====================== */
-
-/* Contenedor del item */
-
-
-/* Submenú base (desktop) */
-.submenu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: #000000;            /* Fondo negro */
-    min-width: 220px;
-    padding: 8px 0;
-    border-radius: 0 0 10px 10px;
-    box-shadow: 0 12px 35px rgba(255, 0, 85, 0.2);  /* Sombra rosa sutil */
-    
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(12px);
-    transition: all 0.3s ease;
-    z-index: 999;
-}
-
-/* Links del submenú */
-.submenu a {
-    display: block;
-    padding: 12px 20px;
-    font-size: 14px;
-    color: #ffffff;                 /* Texto blanco */
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-.submenu a:hover {
-    background: #222;            /* Hover rosa neón */
-    padding-left: 30px;             /* Indentación suave */
-    color: #ffffff;
-}
-
-/* Desktop: hover suave */
-
-
-/* Móvil: animación de contraer/desplegar con max-height (como tu código original) */
-@media (max-width: 768px) {
-    .submenu {
-        position: static;
-        box-shadow: none;
-        background: #111111;        /* Negro un poco más claro para jerarquía */
-        transform: none;
-        opacity: 1;
-        visibility: visible;
-        max-height: 0;              /* Cerrado por defecto */
-        overflow: hidden;
-        padding: 0;
-        transition: max-height 0.4s ease, padding 0.4s ease;  /* Animación suave */
-    }
-
-  
-
-    .submenu a {
-        padding-left: 40px;         /* Indentado como subitem */
-    }
-
-    .submenu a:hover {
-        background: #222;
-        padding-left: 50px;
-    }
-}
-
-}
-    @media (min-width: 769px) {
-    .submenu {
-        left: auto;                 /* No a la izquierda */
-        right: 0;                   /* Alineado a la derecha del item padre */
-        transform: translateY(12px); /* Mantiene la animación */
-    }
-
-   
-}
-	html {
-    scroll-behavior: smooth;  /* Scroll suave en todos los links con # */
-}
-	/* Flechita indicadora (gira al abrir en móvil) */
-/* =================================== */
-        /* HEADER FIXED COMPLETO (NUEVO MENÚ) */
-        /* =================================== */
-        .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: #060606;
-            padding: 15px 50px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            z-index: 999;
-            border-bottom: 1px solid #111;
-        }
-        .header .logo {
-            height: 25px;
-            margin-bottom: 10px;
-        }
-
-        /* Barra con flecha */
-        .menu-bar {
-            height: 40px;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            background: #060606;
-        }
-        .arrow {
-            font-size: 20px;
-            opacity: 0.7;
-            color: #ffffff;
-            transition: transform 0.45s ease;
-        }
-        .menu-wrapper.open .arrow {
-            transform: rotate(180deg);
-        }
-
-        /* Panel del menú desplegable */
-        .menu-panel {
-            position: fixed;
-            top: 110px; /* Justo debajo del header completo */
-            left: 0;
-            width: 100%;
-            background: #060606;
-            max-height: 70vh;
-            overflow-y: auto;
-            transform: scaleY(0);
-            transform-origin: top;
-            opacity: 0;
-            pointer-events: none;
-            transition: transform 0.45s ease, opacity 0.35s ease;
-            z-index: 998;
-        }
-        .menu-wrapper.open .menu-panel {
-            transform: scaleY(1);
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        /* Overlay oscuro */
-        .menu-wrapper::before {
-            content: '';
-            position: fixed;
-            top: 110px;
-            left: 0;
-            width: 100%;
-            height: 70vh;
-            background: rgba(6, 6, 6, 0.98);
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.4s ease;
-            z-index: 997;
-        }
-        .menu-wrapper.open::before {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        /* Grid del menú centrado */
-        .menu {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 30px;
-            padding: 50px 20px 60px;
-            margin: 0 auto;
-            max-width: 1100px;
-            justify-content: center;
-            justify-items: center;
-            list-style: none;
-        }
-
-        /* Títulos destacados */
-        .menu .parent-link {
-            font-size: 18px;
-            font-weight: 600;
-            color: #ffffff;
-            margin-bottom: 16px;
-            display: block;
-            text-decoration: none;
-        }
-
-        /* Subopciones */
-        .submenu {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        .submenu a {
-            font-size: 14px;
-            color: #aaa;
-            display: block;
-            margin-bottom: 8px;
-            text-decoration: none;
-        }
-        .submenu a:hover {
-            color: #ffffff;
-        }
-
-        /* Animación escalonada */
-        .menu > li {
-            text-align: center;
-            opacity: 0;
-            transform: translateY(-8px);
-            transition: opacity 0.4s ease, transform 0.4s ease;
-        }
-        .menu-wrapper.open .menu > li {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .menu > li:nth-child(1) { transition-delay: 0.05s; }
-        .menu > li:nth-child(2) { transition-delay: 0.1s; }
-        .menu > li:nth-child(3) { transition-delay: 0.15s; }
-        .menu > li:nth-child(4) { transition-delay: 0.2s; }
-        .menu > li:nth-child(5) { transition-delay: 0.25s; }
-
-        @media (min-width: 900px) {
-            .menu {
-                grid-template-columns: repeat(5, 1fr);
-                max-width: 1000px;
-                gap: 40px;
-            }
-        }/* ============================================= */
-/* FORZAR VISIBILIDAD DE SUBMENÚS (SOLUCIÓN FINAL) */
-/* ============================================= */
-
-/* Los submenús siempre visibles cuando el panel está abierto */
-.menu-panel.open .submenu,
-.menu-panel .submenu {
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    max-height: none !important;
-    overflow: visible !important;
-    position: static !important;
-    transform: none !important;
-    box-shadow: none !important;
-    background: transparent !important;
-    padding: 12px 0 20px 0;
-    margin: 0 auto;
-    text-align: center;
-}
-
-/* Estilo de las subopciones */
-.menu .submenu a {
-    display: block;
-    padding: 8px 0;
-    font-size: 14px;
-    color: #aaaaaa;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-.menu .submenu a:hover {
-    color: #ffffff;
-    padding-left: 15px;
-    background: rgba(255,255,255,0.05);
-    border-radius: 6px;
-}
-
-/* Asegurar que los títulos no se vean afectados */
-.parent-link {
-    display: block;
-    font-size: 18px;
-    font-weight: 600;
-    color: #ffffff;
-    margin-bottom: 12px;
-    text-decoration: none;
-}/* ===== ANIMACIÓN SUBRAYADO SUAVE EN LINKS DEL FOOTER ===== */
-
-footer nav ul li a {
-    color: #888;
-    text-decoration: none;
-    font-size: 14px;
-    position: relative;           /* Necesario para el ::after */
-    transition: color 0.3s ease;  /* Suave cambio de color */
-}
-
-footer nav ul li a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 1px;                  /* Grosor del subrayado */
-    bottom: -4px;                 /* Distancia debajo del texto */
-    left: 50%;
-    background-color: #ffffff;    /* Color del subrayado (blanco para que se vea en fondo negro) */
-    transition: width 0.3s ease, left 0.3s ease;
-}
-
-footer nav ul li a:hover {
-    color: #ffffff;               /* Texto se pone blanco al hover */
-}
-
-footer nav ul li a:hover::after {
-    width: 100%;                  /* Crece al 100% */
-    left: 0;                      /* Se alinea al izquierda para cubrir todo */
-}
-	.oculto {
-display: none;
-}.arrow-img {
-  width: 14px;      /* ajustá tamaño */
-  height: auto;
-  cursor: pointer;
-}
-.arrow-img {
-  transition: transform 0.3s ease;
-}
-
-.menu-open .arrow-img {
-  transform: rotate(180deg);
-}/* ========================= */
-/* SECCIÓN NOSOTROS - SIN CAJAS, ESTILO LIMPIO 2026 - AJUSTADO TAMAÑOS */
-/* ========================= */
-
-.about-modern {
-  max-width: 820px;
-  margin: 140px auto 120px;   /* un poco menos margen arriba para compensar textos más pequeños */
-  padding: 0 20px;
-  color: #ffffff;
-}
-
-.about-content {
-  text-align: center;
-}
-
-.about-content h1 {
-  font-family: "Poppins", sans-serif;   /* cambio a Poppins para que 16px se vea más legible */
-  font-size: 20px;                      /* ← título principal a 16px */
-  font-weight: 10;
-  letter-spacing: 0.5px;
-  line-height: 1.3;
-  margin: 0 0 32px;
-  text-transform: uppercase;            /* opcional: queda más limpio en pequeño */
-}
-
-.lead {
-  font-size: 14px;                      /* ← párrafo introductorio a 14px */
-  line-height: 1.65;
-  opacity: 0.9;
-  max-width: 680px;
-  margin: 0 auto 60px;
-  font-weight: 400;
-}
-
-.about-section {
-  margin-bottom: 60px;
-	margin-top: 80px; /* separa del bloque anterior */
-margin-bottom: 60px;
-}
-
-.about-section h2 {
-  font-size: 20px;                      /* subtítulos un poquito más grandes que el texto */
-  font-weight: 10;
-  margin: 0 0 16px;
-  letter-spacing: 0.3px;
-}
-
-.about-section p,
-.about-closing p {
-  font-size: 14px;                      /* ← todos los párrafos a 14px */
-  line-height: 1.7;
-  opacity: 0.85;
-  max-width: 680px;
-  margin: 0 auto;
-}
-
-.about-closing {
-  margin-top: 80px;
-  padding-top: 48px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.about-closing h2 {
-  font-size: 20px;
-  margin-bottom: 20px;
-	font-weight: 10;
-}
-
-/* Ajustes móviles – textos ya son pequeños, solo reducimos márgenes */
-@media (max-width: 768px) {
-  .about-modern {
-    margin: 100px auto 80px;
-  }
-  
-  .about-content h1 {
-    margin-bottom: 24px;
-  }
-  
-  .lead {
-    margin-bottom: 48px;
-  }
-  
-  .about-section {
-    margin-bottom: 48px;
-	  
-  }
-  
-  .about-closing {
-    margin-top: 60px;
-    padding-top: 40px;
-  }
-}.tools-section {
-  display: flex;
-  justify-content: center;
-  padding: 60px 20px;
-}
-
-.tools-card {
-  background: #000;
-  max-width: 900px;
-  width: 100%;
-  padding: 40px 30px;
-  border-radius: 18px;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-  text-align: center;
-}
-
-.tools-title {
-  font-size: 1.6rem;
-  margin-bottom: 10px;
-  color: #fff;
-}
-
-.tools-text {
-  font-size: 0.95rem;
-  color: #c5c5c5;
-  margin-bottom: 30px;
-}
-
-.tools-logos {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 28px;
-}
-
-.tools-logos img {
-  height: 45px;
-  opacity: 0.85;
-  transition: transform 0.1s ease, opacity 0.1s ease;
-}
-
-.tools-logos img:hover {
-  opacity: 1;
-  transform: scale(1.08);
-}
-
-/* Responsive */
-@media (max-width: 600px) {
-  .tools-card {
-    padding: 30px 20px;
-  }
-
-  .tools-logos img {
-    height: 38px;
-  }
-}
-	/* ========================= */
-/* FIX HEADER FIXED EN MOBILE */
-/* ========================= */
-@media (max-width: 768px) {
-  .about-modern {
-    margin-top: 150px; /* empuja el título debajo del header */
-  }
-}/* ========================= */
-/* ANIMACIÓN SUAVE NOSOTROS */
-/* ========================= */
-.fade-up {
-  opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.fade-up.visible {
-  opacity: 1;
-  transform: translateY(0);
-}</style>
-
+<meta name="description" content="Conocé NuMake Studio, estudio creativo de diseño gráfico y visual.">
+<link rel="icon" type="image/x-icon" href="img/favicon-numake.ico">
+<link href="https://fonts.googleapis.com/css2?family=Michland&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="numake-style.css">
 </head>
 <body>
-	<section class="about-modern">
 
-  <div class="about-section fade-up">
+<header class="header">
+    <a href="index.html">
+        <img src="img/logo numake 3.png" alt="NuMakeStudio" class="logo">
+    </a>
+    <div class="menu-wrapper" id="menuWrapper">
+        <div class="menu-bar" id="menuToggle">
+            <img src="img/flecha menu.png" alt="Abrir menú" class="arrow-img">
+        </div>
+        <nav class="menu-panel">
+            <ul class="menu">
+                <li><a href="index.html" class="parent-link">Inicio</a></li>
+                <li><a href="portfolio.html" class="parent-link">Portfolio</a></li>
+                <li><a href="servicios.html" class="parent-link">Servicios</a></li>
+                <li><a href="contacto.html" class="parent-link">Contacto</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
 
-    <h1 class="fade-up">Sobre NuMake Studio</h1>
-    
-    <p class="lead fade-up">
-      En NuMake Studio desarrollamos soluciones de diseño visual y digital pensadas para marcas, emprendimientos y proyectos personales que buscan una presencia clara y prolija en el mundo digital.
+<section class="block" style="padding-top:160px;">
+    <div class="about-section">
+        <h1>Sobre NuMake Studio</h1>
+        <p class="lead">En NuMake Studio desarrollamos soluciones de diseño visual y digital pensadas para marcas, emprendimientos y proyectos personales que buscan una presencia clara y prolija en el mundo digital.
 
-Trabajamos como un estudio creativo independiente, con un enfoque cercano, simple y funcional, priorizando siempre el diseño, la estética y la experiencia visual.
-    </p>
-
-    <div class="about-section fade-up">
-      <h2>Nuestra misión</h2>
-      <p class="lead fade-up">
-        Acompañar a emprendedores y pequeños negocios en sus primeros pasos digitales, ofreciendo diseño accesible, honesto y bien pensado.
-
-Buscamos crear piezas visuales que comuniquen bien, se vean profesionales y puedan crecer junto a cada proyecto.
-      </p>
+Trabajamos como un estudio creativo independiente, con un enfoque cercano, simple y funcional, priorizando siempre el diseño, la estética y la experiencia visual.</p>
     </div>
 
-    <div class="about-section fade-up">
-      <h2>¿Qué hacemos?</h2>
-      <p class="lead fade-up">
-        Nos enfocamos en diseño gráfico digital, identidad visual básica y piezas para redes sociales.
+    <div class="about-section">
+        <h2>Nuestra misión</h2>
+        <p class="lead">Acompañar a emprendedores y pequeños negocios en sus primeros pasos digitales, ofreciendo diseño accesible, honesto y bien pensado.
+
+Buscamos crear piezas visuales que comuniquen bien, se vean profesionales y puedan crecer junto a cada proyecto.</p>
+    </div>
+
+    <div class="about-section">
+        <h2>¿Qué hacemos?</h2>
+        <p class="lead">Nos enfocamos en diseño gráfico digital, identidad visual básica y piezas para redes sociales.
 
 Creamos portadas para historias destacadas, banners, piezas gráficas para Instagram y diseños listos para imprimir como carteles, flyers o tarjetas personales.
 
-También realizamos sitios web institucionales simples, pensados para presentar una marca, mostrar servicios y generar contacto, sin desarrollos complejos ni sistemas a medida.
-      </p>
+También realizamos sitios web institucionales simples, pensados para presentar una marca, mostrar servicios y generar contacto, sin desarrollos complejos ni sistemas a medida.</p>
     </div>
 
-   <div class="about-section fade-up">
-      <h2>Nuestro enfoque</h2>
-      <p class="lead fade-up">
-        Trabajamos con una estética limpia, moderna y funcional.
+    <div class="about-section">
+        <h2>Nuestro enfoque</h2>
+        <p class="lead">Trabajamos con una estética limpia, moderna y funcional.
 
-Creemos en diseños simples, bien ordenados y con una idea clara detrás. Cada proyecto se trabaja de forma personalizada, cuidando los detalles sin complicar de más el proceso.
-      </p>
+Creemos en diseños simples, bien ordenados y con una idea clara detrás. Cada proyecto se trabaja de forma personalizada, cuidando los detalles sin complicar de más el proceso.</p>
     </div>
 
-    <div class="about-section fade-up">
-      <h2>¿Por qué nosotros?</h2>
-      <p class="lead fade-up">
-        Porque NuMake Studio trabaja de forma directa, sin intermediarios y con atención personalizada.
+    <div class="about-section">
+        <h2>¿Por qué nosotros?</h2>
+        <p class="lead">Porque NuMake Studio trabaja de forma directa, sin intermediarios y con atención personalizada.
 
-Nos adaptamos a proyectos chicos y medianos, mantenemos una comunicación clara durante todo el proceso y buscamos siempre entregar soluciones bien hechas, realistas y alineadas a las necesidades de cada cliente.
-    </p>
-
-  </div>
-</div>
+Nos adaptamos a proyectos chicos y medianos, mantenemos una comunicación clara durante todo el proceso y buscamos siempre entregar soluciones bien hechas, realistas y alineadas a las necesidades de cada cliente.</p>
+    </div>
 </section>
-<section class="tools-section">
-  <div class="tools-card">
 
-    <h3 class="tools-title">Herramientas que usamos</h3>
-    <p class="tools-text">
-      Trabajamos con software profesional para ofrecer resultados de alta calidad.
-    </p>
-
-    <div class="tools-logos">
-      <img src="ph tools.png" alt="Adobe Photoshop" title="Adobe Photoshop">
-      <img src="ia tools.png" alt="Adobe Illustrator" title="Adobe Illustrator">
-      <img src="corel tools.png" alt="CorelDRAW" title="CorelDRAW">
-      <img src="dream para tools.png" alt="Adobe Dreamweaver" title="Adobe Dreamweaver">
-      <img src="word tools.png" alt="Wordpress" title="Wordpress">
-	  <img src="indesign icon.png" alt="Adobe InDesign" title="Adobe InDesign">
-    </div>
-
-  </div>
-</section>
-<!-- HEADER FIXED CON NUEVO MENÚ -->
-    <header class="header">
-        		<a href="https://numakestudio.com/">
-        <img src="logo numake 3.png" alt="NuMakeStudio" class="logo">
-			</a>
-
-        <div class="menu-wrapper" id="menuWrapper">
-
-
-<div class="menu-bar" id="menuToggle">
-<img src="flecha menu.png" alt="Abrir menú" class="arrow-img">
-</div>
-
-            <nav class="menu-panel">
-    <ul class="menu">
-        <li>
-            <a href="index.html" class="parent-link">Inicio</a>
-            <div class="submenu">
-                <a href="index.html#store">Tienda</a>
-                <a href="index.html#tools">Convertidor</a>
-                <a href="index.html#fuentes">Fuentes</a>
-            </div>
-        </li>
-
-        <section class="oculto"><li>
-            <a class="parent-link">Recursos</a>
-            <div class="submenu">
-                <a href="Portadas.html">Portadas para Historias</a>
-            </div>
-        </li></section>
-
-        <li>
-            <a class="parent-link">Servicios</a>
-            <div class="submenu">
-                <a href="para emprendedores.html#planes-empresas">Planes</a>
-                <a href="para emprendedores.html">Para Emprendedores</a>
-            </div>
-        </li>
-
-        <li>
-            <a class="parent-link">Portfolio</a>
-            <div class="submenu">
-                <a href="portfolio.html">Portfolio</a>
-            </div>
-        </li>
-
-        <li>
-            <a class="parent-link">Info</a>
-            <div class="submenu">
-                <a href="nosotros.html">Nosotros</a>
-                <a href="contacto.html">Contacto</a>
-            </div>
-        </li>
-    </ul>
-</nav>
+<section class="block" style="padding-top:0;">
+    <div class="tools-card">
+        <h3 class="tools-title">Herramientas que usamos</h3>
+        <p class="tools-text">Trabajamos con software profesional para ofrecer resultados de alta calidad.</p>
+        <div class="tools-logos">
+            <img src="img/ph tools.png" alt="Adobe Photoshop" title="Adobe Photoshop">
+            <img src="img/ia tools.png" alt="Adobe Illustrator" title="Adobe Illustrator">
+            <img src="img/logo vs code.png" alt="Visual Studio Code" title="Visual Studio Code">
+            <img src="img/indesign icon.png" alt="Adobe InDesign" title="Adobe InDesign">
         </div>
-    </header>
+    </div>
+</section>
 
-<script>
-const menuBtn = document.getElementById("menuBtn");
-const nav = document.getElementById("navMenu");
-menuBtn.addEventListener("click", ()=> nav.classList.toggle("active"));
-</script>
-
-<!-- ----------------------- -->
-<!-- CONTENEDOR PRINCIPAL -->
-<!-- ----------------------- -->
-
-<!-- ----------------------- -->
-<!-- FOOTER -->
-<!-- ----------------------- -->
-<footer>
-	<div class="footer-social">
-  <a href="https://www.instagram.com/numakestudio" target="_blank" aria-label="Instagram Numake">
-    <img src="logo instagram footer.png" alt="Instagram Numake" class="footer-ig">
-  </a>
-</div>
-	<a href="https://numakestudio.com/">
-		<img src="logo numake 3 footer.png" alt="numake." style="height:50px;width:center;">
+<footer class="footer-simple">
+    <div class="footer-social">
+        <a href="https://www.instagram.com/numakestudio" target="_blank" aria-label="Instagram Numake">
+            <img src="img/logo instagram footer.png" alt="Instagram Numake" class="footer-ig">
+        </a>
+    </div>
     <nav>
         <ul>
             <li><a href="nosotros.html">Nosotros</a></li>
+            <li><a href="servicios.html">Servicios</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
             <li><a href="contacto.html">Contacto</a></li>
-            <li><a href="politicas.html">Políticas</a></li>
-            <section class="oculto">
-<li><a href="stickers.html">Portadas para Historias</a></li></section>
-			<li><a href="para emprendedores.html">Para Emprendedores</a></li>
-			<li><a href="portfolio.html">Portfolio</a></li>
-			<li><a href="preguntas frecuentes.html">Preguntas Frecuentes</a></li>
         </ul>
     </nav>
-    <p>© 2026 NuMakeStudio. Todos los derechos reservados.</p>
-		</a>
+    <p>© 2026 NuMakeStudio.</p>
 </footer>
 
-<script>
-// Cerrar menú móvil al tocar cualquier link interno (#)
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function() {
-        if (window.innerWidth <= 768) {
-            document.getElementById('navMenu').classList.remove('active');
-        }
-    });
-});
-</script>
-	<script>
-// Manejo de submenús en móvil
-document.querySelectorAll('.has-submenu > .submenu-toggle').forEach(item => {
-    item.addEventListener('click', function(e) {
-        // Solo actuar en pantallas móviles (≤768px)
-        if (window.innerWidth <= 768) {
-            e.preventDefault(); // Evita que siga el enlace al tocar
-            
-            const parent = this.parentElement; // el .nav-item
-            parent.classList.toggle('open'); // agrega o quita la clase .open
-        }
-    });
-});
-	// Menú desplegable nuevo
-        const wrapper = document.getElementById("menuWrapper");
-        const toggle = document.getElementById("menuToggle");
-
-        toggle.addEventListener("click", () => {
-            wrapper.classList.toggle("open");
-        });	
-		
-		document.getElementById("menuToggle").addEventListener("click", function () {
-this.classList.toggle("menu-open");
-});
-		const observer = new IntersectionObserver(entries => {
-entries.forEach(entry => {
-if (entry.isIntersecting) {
-entry.target.classList.add("visible");
-}
-});
-}, { threshold: 0.15 });
-
-
-document.querySelectorAll(".fade-up").forEach(el => observer.observe(el));
-</script></body>
+<script src="numake-menu.js"></script>
+</body>
 </html>
+

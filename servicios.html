@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Servicios - NuMakeStudio</title>
+<meta name="description" content="Planes de diseño gráfico y branding de NuMake Studio para emprendimientos, pymes y marcas.">
+<link rel="icon" type="image/x-icon" href="img/favicon-numake.ico">
+<link href="https://fonts.googleapis.com/css2?family=Michland&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="numake-style.css">
+</head>
+<body>
+
+<header class="header">
+    <a href="index.html">
+        <img src="img/logo numake 3.png" alt="NuMakeStudio" class="logo">
+    </a>
+    <div class="menu-wrapper" id="menuWrapper">
+        <div class="menu-bar" id="menuToggle">
+            <img src="img/flecha menu.png" alt="Abrir menú" class="arrow-img">
+        </div>
+        <nav class="menu-panel">
+            <ul class="menu">
+                <li><a href="index.html" class="parent-link">Inicio</a></li>
+                <li><a href="portfolio.html" class="parent-link">Portfolio</a></li>
+                <li><a href="servicios.html" class="parent-link">Servicios</a></li>
+                <li><a href="contacto.html" class="parent-link">Contacto</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section class="hero">
+    <h1>Planes de diseño para tu emprendimiento</h1>
+    <p>Ayudamos a emprendedores, marcas personales y pequeños negocios a construir una imagen clara y atractiva, en redes sociales y en materiales físicos. Piezas listas para Instagram y archivos preparados para impresión, para que tu marca se vea profesional y consistente.</p>
+</section>
+
+<section class="block" style="padding-top:0; max-width:700px;">
+    <div class="faq-item">
+        <h2 class="toggle">¿Qué incluye?</h2>
+        <div class="content">
+            <p style="color:#aaa; font-weight:600; margin-bottom:6px;"></p>
+            <ul>
+                <li>Diseño WEB FRONT</li>
+                <li>Estilo visual coherente</li>
+                <li>Logos</li>
+            </ul>
+            <p style="color:#aaa; font-weight:600; margin-bottom:6px;"></p>
+            <ul>
+                <li>Tarjetas personales</li>
+                <li>Carteles para locales</li>
+                <li>Banners publicitarios</li>
+                <li>Material gráfico básico</li>
+            </ul>
+            <p style="font-size:12px; color:#666;">*Los archivos se entregan listos para imprimir. La impresión no está incluida.</p>
+        </div>
+    </div>
+    <div class="faq-item">
+        <h2 class="toggle">¿Para quién es?</h2>
+        <div class="content">
+            <p>Emprendimientos, tiendas online, marcas personales, pymes y proyectos que quieren una identidad clara desde el primer momento.</p>
+        </div>
+    </div>
+    <div class="faq-item">
+        <h2 class="toggle">¿Cómo funciona?</h2>
+        <div class="content">
+            <ol>
+                <li>Me contás sobre tu emprendimiento</li>
+                <li>Definimos estilo y referencias</li>
+                <li>Diseño el pack a medida</li>
+                <li>Te entrego los archivos listos para usar</li>
+            </ol>
+        </div>
+    </div>
+</section>
+
+<footer class="footer-simple">
+    <div class="footer-social">
+        <a href="https://www.instagram.com/numakestudio" target="_blank" aria-label="Instagram Numake">
+            <img src="img/logo instagram footer.png" alt="Instagram Numake" class="footer-ig">
+        </a>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="nosotros.html">Nosotros</a></li>
+            <li><a href="servicios.html">Servicios</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+    </nav>
+    <p>© 2026 NuMakeStudio.</p>
+</footer>
+
+<script src="numake-menu.js"></script>
+<script>
+document.querySelectorAll('.faq-item .toggle').forEach(toggle => {
+    toggle.addEventListener('click', () => {
+        toggle.parentElement.classList.toggle('active');
+    });
+});
+</script>
+</body>
+</html>
+
