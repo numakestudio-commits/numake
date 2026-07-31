@@ -1,8 +1,9 @@
 // NuMake Studio — menú desplegable compartido
 document.addEventListener('DOMContentLoaded', () => {
     const wrapper = document.getElementById('menuWrapper');
-    if (wrapper) {
-        wrapper.classList.add('open');
+    const toggle = document.getElementById('menuToggle');
+    if (wrapper && toggle) {
+        toggle.addEventListener('click', () => wrapper.classList.toggle('open'));
     }
     document.body.classList.add('page-loaded');
 
