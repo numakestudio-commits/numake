@@ -7,6 +7,30 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     document.body.classList.add('page-loaded');
 
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+    const footer = document.querySelector('footer.footer-simple');
+
+    if (scrollTopBtn) {
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        const toggleScrollTopButton = () => {
+            if (!footer) {
+                scrollTopBtn.classList.remove('visible');
+                return;
+            }
+
+            const footerRect = footer.getBoundingClientRect();
+            const shouldShow = footerRect.top <= window.innerHeight - 120;
+            scrollTopBtn.classList.toggle('visible', shouldShow);
+        };
+
+        window.addEventListener('scroll', toggleScrollTopButton, { passive: true });
+        window.addEventListener('resize', toggleScrollTopButton);
+        toggleScrollTopButton();
+    }
+
     const selectors = [
         'section',
         '.project-card',

@@ -194,6 +194,32 @@ a { color: inherit; }
 }
 .btn-outline:hover { border-color: #fff; }
 
+.scroll-top-btn {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 48px;
+    height: 48px;
+    border: none;
+    border-radius: 50%;
+    background: #fff;
+    color: #000;
+    font-size: 22px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.28);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(12px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 1200;
+}
+.scroll-top-btn.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
 /* ======================================================
    HERO (Inicio)
    ====================================================== */
@@ -288,6 +314,7 @@ section.block {
     box-shadow: 0 4px 15px rgba(0,0,0,0.3);
     transition: transform 0.3s ease;
     display: block;
+    background: #111;
 }
 .project-card:hover { transform: translateY(-8px); }
 .project-img { width: 100%; height: 400px; object-fit: cover; transition: filter 0.4s ease; display: block; }
@@ -316,9 +343,13 @@ section.block {
 .project-card:hover .project-img { filter: brightness(0.55); }
 .project-overlay {
     position: absolute;
-    bottom: 0; left: 0; right: 0;
+    inset: auto 0 0 0;
     background: linear-gradient(to top, rgba(0,0,0,0.92), transparent);
     padding: 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 45%;
     transform: translateY(40%);
     transition: transform 0.4s ease;
 }
